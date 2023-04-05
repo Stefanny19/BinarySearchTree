@@ -4,7 +4,6 @@ public class TreeNode<T> implements TreeNodeInterface {
     public TreeNode() {
         data = null;
     }
-
     public TreeNode(T data) {
         this.data = data;
     }
