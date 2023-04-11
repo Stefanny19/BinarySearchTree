@@ -10,7 +10,6 @@ public interface TreeInterface<T> {
     boolean isEmpty();
     int height();
     boolean insert(T object);
-    boolean removeWidth(T object);
-    boolean removeDeep(T object);
+    boolean remove(T object);
 
 }

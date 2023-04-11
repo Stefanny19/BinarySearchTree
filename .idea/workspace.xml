@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e38d2d5-4790-43ac-87b1-d87be9d612ac" name="Changes" comment="Creacion de clases">
+    <list default="true" id="5e38d2d5-4790-43ac-87b1-d87be9d612ac" name="Changes" comment="Nodo">
+      <change afterPath="$PROJECT_DIR$/src/Cola/DinamicQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Cola/QueueInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Cola/Tools/DoublyLinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Cola/Tools/DoublyLinkedListNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Cola/Tools/List.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Cola/Tools/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BinarySearchNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinarySearchNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinarySearchTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TreeInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TreeInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TreeNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TreeNode.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +52,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/stefa/IdeaProjects/BinatryTree"
+    "last_opened_file_path": "C:/Users/stefa/IdeaProjects/BinarySearchTree/src"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -71,11 +76,19 @@
       <option name="project" value="LOCAL" />
       <updated>1680711509854</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Nodo">
+      <created>1680727070656</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680727070656</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Creacion de clases" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creacion de clases" />
+    <MESSAGE value="Nodo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nodo" />
   </component>
 </project>
