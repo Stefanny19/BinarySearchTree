@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e38d2d5-4790-43ac-87b1-d87be9d612ac" name="Changes" comment="Nodo">
-      <change afterPath="$PROJECT_DIR$/src/Cola/DinamicQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Cola/QueueInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Cola/Tools/DoublyLinkedList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Cola/Tools/DoublyLinkedListNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Cola/Tools/List.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Cola/Tools/Node.java" afterDir="false" />
+    <list default="true" id="5e38d2d5-4790-43ac-87b1-d87be9d612ac" name="Changes" comment="Finalizacion de todos los métodos&#10;(Falta probarlos)">
+      <change afterPath="$PROJECT_DIR$/src/Cola/Tools/LinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Cola/Tools/LinkedListNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BinarySearchNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinarySearchNode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinarySearchTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TreeInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TreeInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,13 +49,28 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/stefa/IdeaProjects/BinarySearchTree/src"
+    "last_opened_file_path": "C:/Users/stefa/OneDrive/Escritorio"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\stefa\IdeaProjects\BinarySearchTree\src\Cola\Tools" />
       <recent name="C:\Users\stefa\IdeaProjects\BinarySearchTree\src" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="BinarySearchTree" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -83,12 +95,20 @@
       <option name="project" value="LOCAL" />
       <updated>1680727070656</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Finalizacion de todos los métodos&#10;(Falta probarlos)">
+      <created>1681215812223</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681215812223</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Creacion de clases" />
     <MESSAGE value="Nodo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Nodo" />
+    <MESSAGE value="Finalizacion de todos los métodos&#10;(Falta probarlos)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalizacion de todos los métodos&#10;(Falta probarlos)" />
   </component>
 </project>

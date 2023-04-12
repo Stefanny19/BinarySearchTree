@@ -1,36 +1,36 @@
 import Cola.*;
 
-import java.util.concurrent.ExecutionException;
+import java.util.LinkedList;
 
 public class BinarySearchTree<T> implements TreeInterface<T> {
 
-    BinarySearchNode<T> root;
-    int elements = 0, height = 0;
+    private BinarySearchNode<T> root;
+    private int elements = 0, height = 0;
 
     public BinarySearchTree() {
         this.root = null;
         this.elements = 0;
     }
 
-    public BinarySearchTree(T object) {
-        this.root = new BinarySearchNode<>(object);
+    public BinarySearchTree(T object, int key) {
+        this.root = new BinarySearchNode<>(object, key);
         elements = 1;
     }
 
     //Recorridos
     @Override
-    public String preOrderToString() {
-        return preOrderToString(root, "");
+    public String preOrderToString(){
+        LinkedList<T> lista = new LinkedList<>();
+        return preOrderToString(root, lista);
     }
-    private String preOrderToString(BinarySearchNode<T> raiz, String string) {
+    private String preOrderToString(BinarySearchNode<T> raiz, LinkedList<T> lista) {
         try{
             if(raiz != null){
-                string += raiz.getObject().toString();
-                string = preOrderToString(raiz.left, string);
-                string = preOrderToString(raiz.right, string);
-                elements++; //??
+                lista.add((T) raiz.getObject());
+                preOrderToString(raiz.left, lista);
+                preOrderToString(raiz.right, lista);
             }
-            return string;
+            return lista.toString();
 
         }catch (Exception e){
             e.printStackTrace();
@@ -39,18 +39,18 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
     }
     @Override
     public String inOrderToString() {
-        return inOrderToString(root, "");
+        LinkedList<T> lista = new LinkedList<>();
+        return inOrderToString(this.root, lista);
     }
-    private String inOrderToString(BinarySearchNode<T> root, String string) {
+    private String inOrderToString(BinarySearchNode<T> root, LinkedList<T> lista) {
         try{
 
             if(root != null){
-                string += root.left.getObject().toString();
-                string = inOrderToString(root, string);
-                string = inOrderToString(root.right, string);
-                elements++; //??
+                inOrderToString(root.left, lista);
+                lista.add((T) root.data);
+                inOrderToString(root.right, lista);
             }
-            return string;
+            return lista.toString();
 
         }catch (Exception e){
             e.printStackTrace();
@@ -59,17 +59,17 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
     }
     @Override
     public String postOrderToString() {
-        return postOrderToString(root, "");
+        LinkedList<T> lista = new LinkedList<>();
+        return postOrderToString(this.root, lista);
     }
-    private String postOrderToString(BinarySearchNode<T> root, String string) {
+    private String postOrderToString(BinarySearchNode<T> root, LinkedList<T> lista) {
         try{
             if(root != null){
-                string += root.left.getObject().toString();
-                string = postOrderToString(root.right, string);
-                string = postOrderToString(root, string);
-                elements++; //??
+                postOrderToString(root.left, lista);
+                postOrderToString(root.right, lista);
+                lista.add((T) root.data);
             }
-            return string;
+            return lista.toString();
 
         }catch (Exception e){
             e.printStackTrace();
@@ -78,26 +78,29 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
     }
     @Override
     public String widthOrderToString() {
-        return widthOrderToString(root, "");
+        LinkedList<T> lista = new LinkedList<>();
+        return widthOrderToString(root, lista);
     }
-    private String widthOrderToString(BinarySearchNode<T> root, String string) {
+    private String widthOrderToString(BinarySearchNode<T> root, LinkedList<T> lista) {
 
-        DinamicQueue<TreeNode<T>> queue = new DinamicQueue<>();
+        DinamicQueue<BinarySearchNode<T>> queue = new DinamicQueue<>();
         queue.insert(root);
-        height++;
 
         while(!queue.isEmpty()){
-            BinarySearchNode<T> temp = (BinarySearchNode<T>) queue.extract();
-            string += temp.getObject().toString();
+            BinarySearchNode<T> temp = queue.extract();
 
-            if(temp.left != null){
-                queue.insert(temp.left);
-            }
-            if(temp.right != null){
-                queue.insert(temp.right);
+            if(temp != null){
+                lista.add((T) temp.data);
+
+                if(temp.left != null){
+                    queue.insert(temp.left);
+                }
+                if(temp.right != null){
+                    queue.insert(temp.right);
+                }
             }
         }
-        return string;
+        return lista.toString();
     }
 
     @Override
@@ -161,45 +164,58 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
     }
 
     @Override
-    public boolean insert(T object) {
+    public boolean insert(T object, int key){
         try{
-            BinarySearchNode<T> temp = new BinarySearchNode<>(object);
-            Comparable<T> comparable = (Comparable<T>) object;
-
-            //en caso de que el arbol esté vacío
-            if(isEmpty()){
-                root = temp;
-            }else{
-                boolean agregado = false;
-
-                //comparar el nuevo elemento comparado con el elemento de la raiz
-                while(!agregado){
-                    //si el elemento es menor que la raiz
-                    if(comparable.compareTo(root.data) < 0){
-                        if(root.left == null){
-                            root.left = temp;
-                            agregado = true;
-                        }else{
-                            //nos desplazamos hasta el hijo izquierdo de la raiz
-                            root = root.left;
-                        }
-                    }else{
-                        //si es mayor, agregar a la derecha
-                        if(root.right == null){
-                            root.right = temp;
-                            agregado = true;
-                        }else{
-                            root = root.right;
-                        }
-                    }
-                }
-                elements++;
-                return agregado;
-            }
-        }catch(Exception e){
+            insert(root, object, key);
+            return true;
+        }catch (Exception e){
             e.printStackTrace();
         }
         return false;
+    }
+
+    private BinarySearchNode<T> insert(BinarySearchNode<T> raiz, T object, int key) {
+        try{
+
+            //en caso de que el arbol esté vacío
+            if(isEmpty()){
+                root = new BinarySearchNode<>(object,key);
+                elements++;
+                return root;
+
+            }else{
+                //comparar el nuevo elemento con el elemento de la raiz
+                //si el elemento es menor que la raiz
+                if(key < raiz.key){
+
+                    if(raiz.left == null){
+                        raiz.left = new BinarySearchNode<>(object, key);
+                        elements++;
+                        return raiz;
+
+                    }else{
+                        //nos desplazamos hasta el hijo izquierdo de la raiz
+                        raiz = raiz.left;
+                        return insert(raiz,object, key);
+                    }
+                }else{
+                    //si es mayor, agregar a la derecha
+                    if(raiz.right == null){
+                        raiz.right = new BinarySearchNode<>(object, key);
+                        elements++;
+                        return raiz;
+
+                    }else{
+                        raiz = raiz.right;
+                        return insert(raiz, object, key);
+                    }
+                    }
+                }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override

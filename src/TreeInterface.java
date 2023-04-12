@@ -9,7 +9,7 @@ public interface TreeInterface<T> {
     int nodeCount();
     boolean isEmpty();
     int height();
-    boolean insert(T object);
+    boolean insert(T object, int key);
     boolean remove(T object);
 
 }

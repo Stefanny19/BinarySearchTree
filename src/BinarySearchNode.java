@@ -2,15 +2,17 @@ import java.net.BindException;
 
 public class BinarySearchNode<T>  extends TreeNode<T> {
     protected BinarySearchNode<T> left, right;
+    protected int key;
     protected int id;
 
     public BinarySearchNode() {
         left = right = null;
     }
 
-    public BinarySearchNode(T data) {
+    public BinarySearchNode(T data, int key) {
         super(data);
         left = right = null;
+        this.key = key;
     }
 
     public BinarySearchNode(T data, BinarySearchNode<T> left, BinarySearchNode<T> right) {
@@ -58,13 +60,5 @@ public class BinarySearchNode<T>  extends TreeNode<T> {
         }
         return 0;
     }
-    public int compareTo(BinarySearchNode<T> object) {
-            if (id == object.id){
-                return 0;
-            } else if (id < object.id) {
-                return -1;
-            }else{
-                return 1;
-            }
-    }
+
 }
