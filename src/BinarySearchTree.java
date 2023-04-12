@@ -5,16 +5,18 @@ import java.util.LinkedList;
 public class BinarySearchTree<T> implements TreeInterface<T> {
 
     private BinarySearchNode<T> root;
-    private int elements = 0, height = 0;
+    private int elements, height;
 
     public BinarySearchTree() {
         this.root = null;
         this.elements = 0;
+        this.height = 0;
     }
 
     public BinarySearchTree(T object, int key) {
         this.root = new BinarySearchNode<>(object, key);
-        elements = 1;
+        this.elements = 1;
+        this.height = 1;
     }
 
     //Recorridos
@@ -60,7 +62,7 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
     @Override
     public String postOrderToString() {
         LinkedList<T> lista = new LinkedList<>();
-        return postOrderToString(this.root, lista);
+        return postOrderToString(root, lista);
     }
     private String postOrderToString(BinarySearchNode<T> root, LinkedList<T> lista) {
         try{
@@ -104,21 +106,21 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
     }
 
     @Override
-    public boolean search(T object) {
+    public boolean search(int key) {
         try{
             if(!isEmpty()){
                 BinarySearchNode<T> temp = root;
                 boolean found = false;
 
-                while(temp.data != object){
-                    if((((Comparable) object).compareTo(temp.data) < 0)){
+                while(temp.key != key){
+                    if(key < temp.key){
                         temp = temp.left;
                     }else{
                         temp = temp.right;
                     }
                 }
 
-                if(object.equals(temp.data)){
+                if(key == temp.key){
                     found = true;
                 }
              return found;
@@ -133,7 +135,7 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
     public T extract() {
 
         BinarySearchNode<T> aux = root;
-        remove(root.data);
+        remove(root.key);
 
         return aux.data;
     }
@@ -218,30 +220,44 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
         return null;
     }
 
+    /*
+    Referencia para la realizacion del método remove: Estructura de datos con java, diseño de estructuras y algoritmos
+    Autrores: John Lewis y Joseph Chase
+     */
     @Override
-    public boolean remove(T object) {
+    public boolean remove(int key) {
         try{
 
             boolean found = false;
 
             if(!isEmpty()){
-                //Si no tiene hijos, la funcion de reemplazar retorna nulo
-                //Si tiene un hijo, devuelve ese hijo
-                //Si tiene dos hijos, devuelveel nodo siguiente al que hay que eliminar
-                if((object).equals(root.data)){
+
+                /*verificamos si la clave que deseamos eliminar es la raíz del árbol. Si es así, reemplazamos la raíz
+                por un nuevo nodo y decrementamos el contador de elementos.*/
+
+                if(key == root.key){
                     root = reemplazar(root);
                     elements--;
+
                 }else{
+                    /*iniciamos un recorrido en el árbol para encontrar el nodo que contiene la clave dada.
+                     Comenzamos desde la raíz y comparamos la clave dada con la clave del nodo actual.*/
+
                     BinarySearchNode<T> actual, padre = root;
 
-                    if(((Comparable) object).compareTo(root.data) < 0){
+                    /*Si la clave dada es menor que la clave del nodo actual, nos movemos al subárbol izquierdo del
+                    nodo actual; de lo contrario, nos movemos al subárbol derecho.*/
+                    if(key < root.key){
                         actual = root.left;
                     }else{
                         actual = root.right;
                     }
 
+                    /*Si el nodo encontrado es un hijo izquierdo de su padre, reemplazamos el nodo encontrado con su
+                    nodo más a la derecha en el subárbol izquierdo. De lo contrario, reemplazamos el nodo encontrado
+                    con su nodo más a la derecha en el subárbol derecho.*/
                     while(actual != null && !found){
-                        if(object.equals(actual.data)){
+                        if(key == actual.key){
                             found = true;
                             elements--;
 
@@ -250,10 +266,11 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
                             }else{
                                 padre.right = reemplazar(actual);
                             }
+
                         }else{
                             padre = actual;
 
-                            if(((Comparable)object).compareTo(actual.data) < 0){
+                            if(key < actual.key){
                                 actual = actual.left;
                             }else{
                                 actual = actual.right;
@@ -262,7 +279,7 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
                     }
                 }
             }
-            return found;
+            return true;
 
         }catch (Exception e){
             e.printStackTrace();
@@ -271,16 +288,27 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
     }
 
     //Devuelve el nodo que sustituirá al que se va a reemplazar en el medoto remove
+
+    /*
+    Referencia para la realizacion del método reemplazar: Estructura de datos con java, diseño de estructuras y algoritmos
+    Autrores: John Lewis y Joseph Chase
+     */
    private BinarySearchNode<T> reemplazar(BinarySearchNode<T> nodo){
         try{
             BinarySearchNode<T> resultado;
 
+            //Evaluacion del nodo en tres casos
+            //Caso 1: El nodo no tiene ningun hijo
             if((nodo.left == null) && (nodo.right == null)){
                 resultado = null;
+
+            //Caso 2: El nodo solo tiene un hijo
             }else if((nodo.left != null) && (nodo.right == null)){
                 resultado = nodo.left;
             }else if((nodo.left == null) && (nodo.right != null)){
                 resultado = nodo.right;
+
+            //Caso 3: El nodo tiene dos hijos. Evaluar a la derecha
             }else{
 
                 BinarySearchNode<T> actual = nodo.right;
@@ -299,6 +327,7 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
                     actual.left = nodo.left;
                 }
 
+                //Devuelve el sucesor del nodo que hay que eliminar
                 resultado = actual;
             }
             return resultado;

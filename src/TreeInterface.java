@@ -3,13 +3,13 @@ public interface TreeInterface<T> {
     String inOrderToString();
     String postOrderToString();
     String widthOrderToString();
-    boolean search(T object);
+    boolean search(int key);
     T extract();
     int size();
     int nodeCount();
     boolean isEmpty();
     int height();
     boolean insert(T object, int key);
-    boolean remove(T object);
+    boolean remove(int key);
 
 }

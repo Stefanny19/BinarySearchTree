@@ -3,7 +3,6 @@ import java.net.BindException;
 public class BinarySearchNode<T>  extends TreeNode<T> {
     protected BinarySearchNode<T> left, right;
     protected int key;
-    protected int id;
 
     public BinarySearchNode() {
         left = right = null;
