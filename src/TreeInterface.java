@@ -13,5 +13,7 @@ public interface TreeInterface<T> {
     int height();
     boolean insert(T object, int key);
     boolean remove(int key);
+    boolean isFull();
+    boolean isComplete();
 
 }

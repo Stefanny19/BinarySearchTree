@@ -24,7 +24,7 @@ public class Main {
         System.out.println(arbol.preOrderToString().toString());
 
         //remove
-        arbol.remove(10);
+        arbol.remove(14);
         System.out.println(arbol.postOrderToString().toString());
         System.out.println(arbol.preOrderToString().toString());
 
@@ -33,8 +33,8 @@ public class Main {
         System.out.println(arbol.search(7));
 
         //Extract
-        System.out.println("Extract");
-        System.out.println(arbol.extract());
+        /*System.out.println("Extract");
+        System.out.println(arbol.extract());*/
 
         System.out.println(arbol.preOrderToString().toString());
 
@@ -47,5 +47,10 @@ public class Main {
         //Height
         System.out.println("Height\n" + arbol.height());
 
+        //Is full?
+        System.out.println("is Full?\n" + arbol.isFull());
+
+        //isComplete?
+        System.out.println("is complete?\n" + arbol.isComplete());
     }
 }

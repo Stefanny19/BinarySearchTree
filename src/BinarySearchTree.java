@@ -306,6 +306,35 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
         return false;
     }
 
+    //El arbol de altura k está lleno si tiene 2^k-1 nodos
+    @Override
+    public boolean isFull() {
+        int nodeCant = (int) (Math.pow(2,height()) - 1);
+        return size() == nodeCant;
+    }
+
+
+    /*Si está lleno hasta el nivel k-1 y todos los nodos están lo más a la izquierda posible*/
+    @Override
+    public boolean isComplete() {
+        return isComplete(root,height(), 0);
+    }
+    public boolean isComplete(BinarySearchNode<T> nodo, int height, int level){
+        if(nodo == null){
+            return true;
+        }
+        if(level >= height){ //si el nivel actual es mayor a la altura del arbol
+            return false;
+        }
+
+        if(isComplete(nodo.left, height, level+1) && isComplete(nodo.right, height, level+1)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
     //Devuelve el nodo que sustituirá al que se va a reemplazar en el medoto remove
 
     /*

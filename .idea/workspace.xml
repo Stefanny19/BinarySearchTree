@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e38d2d5-4790-43ac-87b1-d87be9d612ac" name="Changes" comment="todos los metodos funcionando correctamente a excepcion de height">
+    <list default="true" id="5e38d2d5-4790-43ac-87b1-d87be9d612ac" name="Changes" comment="todo funcionaperfectamente">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinarySearchTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
@@ -42,13 +42,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/stefa/IdeaProjects/BinarySearchTree&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/stefa/IdeaProjects/BinarySearchTree"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\stefa\IdeaProjects\BinarySearchTree\src\Cola\Tools" />
@@ -113,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681279150617</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="todo funcionaperfectamente">
+      <created>1681572564873</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681572564873</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -122,6 +129,7 @@
     <MESSAGE value="Finalizacion de todos los métodos&#10;(Falta probarlos)" />
     <MESSAGE value="arreglo del metodo insertar" />
     <MESSAGE value="todos los metodos funcionando correctamente a excepcion de height" />
-    <option name="LAST_COMMIT_MESSAGE" value="todos los metodos funcionando correctamente a excepcion de height" />
+    <MESSAGE value="todo funcionaperfectamente" />
+    <option name="LAST_COMMIT_MESSAGE" value="todo funcionaperfectamente" />
   </component>
 </project>
