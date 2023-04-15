@@ -1,10 +1,10 @@
 import java.util.LinkedList;
 
 public interface TreeInterface<T> {
-    LinkedList<T> preOrderToString();
-    LinkedList<T> inOrderToString();
-    LinkedList<T> postOrderToString();
-    LinkedList<T> widthOrderToString();
+    LinkedList<T> preOrder();
+    LinkedList<T> inOrder();
+    LinkedList<T> postOrder();
+    LinkedList<T> widthOrder();
     boolean search(int key);
     T extract();
     int size();

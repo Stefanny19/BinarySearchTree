@@ -19,16 +19,16 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
 
     //Recorridos
     @Override
-    public LinkedList<T> preOrderToString(){
+    public LinkedList<T> preOrder(){
         LinkedList<T> lista = new LinkedList<>();
-        return preOrderToString(root, lista);
+        return preOrder(root, lista);
     }
-    private LinkedList<T> preOrderToString(BinarySearchNode<T> raiz, LinkedList<T> lista) {
+    private LinkedList<T> preOrder(BinarySearchNode<T> raiz, LinkedList<T> lista) {
         try{
             if(raiz != null){
-                lista.add((T) raiz.getObject());
-                preOrderToString(raiz.left, lista);
-                preOrderToString(raiz.right, lista);
+                lista.add(raiz.data);
+                preOrder(raiz.left, lista);
+                preOrder(raiz.right, lista);
             }
             return lista;
 
@@ -38,17 +38,17 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
         return null;
     }
     @Override
-    public LinkedList<T> inOrderToString() {
+    public LinkedList<T> inOrder() {
         LinkedList<T> lista = new LinkedList<>();
-        return inOrderToString(this.root, lista);
+        return inOrder(this.root, lista);
     }
-    private LinkedList<T> inOrderToString(BinarySearchNode<T> root, LinkedList<T> lista) {
+    private LinkedList<T> inOrder(BinarySearchNode<T> root, LinkedList<T> lista) {
         try{
 
             if(root != null){
-                inOrderToString(root.left, lista);
-                lista.add((T) root.data);
-                inOrderToString(root.right, lista);
+                inOrder(root.left, lista);
+                lista.add(root.data);
+                inOrder(root.right, lista);
             }
             return lista;
 
@@ -58,16 +58,16 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
         return null;
     }
     @Override
-    public LinkedList<T> postOrderToString() {
+    public LinkedList<T> postOrder() {
         LinkedList<T> lista = new LinkedList<>();
-        return postOrderToString(root, lista);
+        return postOrder(root, lista);
     }
-    private LinkedList<T> postOrderToString(BinarySearchNode<T> root, LinkedList<T> lista) {
+    private LinkedList<T> postOrder(BinarySearchNode<T> root, LinkedList<T> lista) {
         try{
             if(root != null){
-                postOrderToString(root.left, lista);
-                postOrderToString(root.right, lista);
-                lista.add((T) root.data);
+                postOrder(root.left, lista);
+                postOrder(root.right, lista);
+                lista.add(root.data);
             }
             return lista;
 
@@ -77,11 +77,11 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
         return null;
     }
     @Override
-    public LinkedList<T> widthOrderToString() {
+    public LinkedList<T> widthOrder() {
         LinkedList<T> lista = new LinkedList<>();
-        return widthOrderToString(root, lista);
+        return widthOrder(root, lista);
     }
-    private LinkedList<T> widthOrderToString(BinarySearchNode<T> root, LinkedList<T> lista) {
+    private LinkedList<T> widthOrder(BinarySearchNode<T> root, LinkedList<T> lista) {
 
         DinamicQueue<BinarySearchNode<T>> queue = new DinamicQueue<>();
         queue.insert(root);
@@ -90,7 +90,7 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
             BinarySearchNode<T> temp = queue.extract();
 
             if(temp != null){
-                lista.add((T) temp.data);
+                lista.add(temp.data);
 
                 if(temp.left != null){
                     queue.insert(temp.left);
