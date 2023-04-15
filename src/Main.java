@@ -17,16 +17,16 @@ public class Main {
 
         //Postosrder
         System.out.println("Postorder");
-        System.out.println(arbol.postOrderToString());
+        System.out.println(arbol.postOrderToString().toString());
 
         //Preorder
         System.out.println("preorder");
-        System.out.println(arbol.preOrderToString());
+        System.out.println(arbol.preOrderToString().toString());
 
         //remove
         arbol.remove(10);
-        System.out.println(arbol.postOrderToString());
-        System.out.println(arbol.preOrderToString());
+        System.out.println(arbol.postOrderToString().toString());
+        System.out.println(arbol.preOrderToString().toString());
 
         //search
         System.out.println("Search");
@@ -36,7 +36,7 @@ public class Main {
         System.out.println("Extract");
         System.out.println(arbol.extract());
 
-        System.out.println(arbol.preOrderToString());
+        System.out.println(arbol.preOrderToString().toString());
 
         //Size
         System.out.println("Size\n" + arbol.size());

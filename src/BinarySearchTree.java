@@ -5,34 +5,32 @@ import java.util.LinkedList;
 public class BinarySearchTree<T> implements TreeInterface<T> {
 
     private BinarySearchNode<T> root;
-    private int elements, height;
+    private int elements;
 
     public BinarySearchTree() {
         this.root = null;
         this.elements = 0;
-        this.height = 0;
     }
 
     public BinarySearchTree(T object, int key) {
         this.root = new BinarySearchNode<>(object, key);
         this.elements = 1;
-        this.height = 1;
     }
 
     //Recorridos
     @Override
-    public String preOrderToString(){
+    public LinkedList<T> preOrderToString(){
         LinkedList<T> lista = new LinkedList<>();
         return preOrderToString(root, lista);
     }
-    private String preOrderToString(BinarySearchNode<T> raiz, LinkedList<T> lista) {
+    private LinkedList<T> preOrderToString(BinarySearchNode<T> raiz, LinkedList<T> lista) {
         try{
             if(raiz != null){
                 lista.add((T) raiz.getObject());
                 preOrderToString(raiz.left, lista);
                 preOrderToString(raiz.right, lista);
             }
-            return lista.toString();
+            return lista;
 
         }catch (Exception e){
             e.printStackTrace();
@@ -40,11 +38,11 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
         return null;
     }
     @Override
-    public String inOrderToString() {
+    public LinkedList<T> inOrderToString() {
         LinkedList<T> lista = new LinkedList<>();
         return inOrderToString(this.root, lista);
     }
-    private String inOrderToString(BinarySearchNode<T> root, LinkedList<T> lista) {
+    private LinkedList<T> inOrderToString(BinarySearchNode<T> root, LinkedList<T> lista) {
         try{
 
             if(root != null){
@@ -52,7 +50,7 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
                 lista.add((T) root.data);
                 inOrderToString(root.right, lista);
             }
-            return lista.toString();
+            return lista;
 
         }catch (Exception e){
             e.printStackTrace();
@@ -60,18 +58,18 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
         return null;
     }
     @Override
-    public String postOrderToString() {
+    public LinkedList<T> postOrderToString() {
         LinkedList<T> lista = new LinkedList<>();
         return postOrderToString(root, lista);
     }
-    private String postOrderToString(BinarySearchNode<T> root, LinkedList<T> lista) {
+    private LinkedList<T> postOrderToString(BinarySearchNode<T> root, LinkedList<T> lista) {
         try{
             if(root != null){
                 postOrderToString(root.left, lista);
                 postOrderToString(root.right, lista);
                 lista.add((T) root.data);
             }
-            return lista.toString();
+            return lista;
 
         }catch (Exception e){
             e.printStackTrace();
@@ -79,11 +77,11 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
         return null;
     }
     @Override
-    public String widthOrderToString() {
+    public LinkedList<T> widthOrderToString() {
         LinkedList<T> lista = new LinkedList<>();
         return widthOrderToString(root, lista);
     }
-    private String widthOrderToString(BinarySearchNode<T> root, LinkedList<T> lista) {
+    private LinkedList<T> widthOrderToString(BinarySearchNode<T> root, LinkedList<T> lista) {
 
         DinamicQueue<BinarySearchNode<T>> queue = new DinamicQueue<>();
         queue.insert(root);
@@ -102,7 +100,7 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
                 }
             }
         }
-        return lista.toString();
+        return lista;
     }
 
     @Override
@@ -161,8 +159,29 @@ public class BinarySearchTree<T> implements TreeInterface<T> {
     }
 
     @Override
-    public int height() {
-        return height;
+    public int height(){
+        return height(root);
+    }
+    public int height(BinarySearchNode<T> nodo) {
+        try{
+            if(isEmpty() || nodo == null){
+                return 0;
+            }else{
+                //caluclar los subarboles izquierdo y derecho
+                int leftSubtree = height(nodo.left);
+                int rightSubtree = height(nodo.right);
+
+                //Calcular el mayor
+                if(leftSubtree > rightSubtree){
+                    return leftSubtree + 1;
+                }else{
+                    return rightSubtree + 1;
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     @Override
